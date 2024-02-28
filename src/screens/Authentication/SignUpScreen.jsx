@@ -15,7 +15,7 @@ export default function SignUpScreen({ navigation }) {
   const dispatch = useDispatch()
   const { signupData, loading } = useSelector((state) => state.auth);
 
-  const [accountType, setAccountType] = useState(ACCOUNT_TYPE.BUYER)
+  const [accountType, setAccountType] = useState(ACCOUNT_TYPE.ADMIN)
   const formObj = {
     name: '',
     email: '',

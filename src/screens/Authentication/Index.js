@@ -30,7 +30,8 @@ export default function Index({navigation}) {
                 </View>
             </View>
             <View style={[styles.bottomView]}>
-                <Text style={[global.textBlack, global.secondaryText, styles.qoute]} >Discover the best foods from restaurants and get fast delivery to your doorstep</Text>
+                <Text style={[global.heading1, styles.heading]}>Admin Login</Text>
+                <Text style={[global.textBlack, global.secondaryText, styles.qoute]} >Please use your admin account for loging in.</Text>
                 <Pressable
                     onPress={ ()=>{navigation.push('LogIn')}}
                     style={styles.button}>
@@ -70,6 +71,9 @@ const styles = StyleSheet.create({
         width: windowWidth,
         bottom: -windowWidth / 100 * 15
 
+    },
+    heading: {
+        color:global.baseColor
     },
     qoute: {
         textAlign: 'center',

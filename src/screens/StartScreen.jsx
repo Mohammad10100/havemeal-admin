@@ -63,6 +63,7 @@ export default function StartScreen({ navigation }) {
           </View>
 
           <View style={[styles.container, global.flexC, styles.bottomView]}>
+          <Text style={[global.baseTextColor, global.heading1, styles.heading]}>Admin Portal</Text>
             {/* TODO: Random qoutes from backend*/}
             <Text style={[global.baseTextColor, global.heading2, styles.heading]}>Delicious unsold food</Text>
             <View style={styles.qouteView}>

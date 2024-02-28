@@ -1,5 +1,5 @@
 import Config from "react-native-config";
-const BASE_URL = Config.REACT_APP_BASE_URL
+const BASE_URL = Config.REACT_APP_BASE_URL || "http://localhost:5001/api/v1"
 console.log(BASE_URL);
 
 // AUTH ENDPOINTS

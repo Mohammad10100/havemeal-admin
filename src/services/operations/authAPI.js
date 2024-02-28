@@ -90,6 +90,7 @@ export function signUp(
 export function login(email, password, navigation) {
   return async (dispatch) => {
     // const toastId = toast.loading("Loading...")
+    console.log('smthn', LOGIN_API);
     dispatch(setLoading(true))
     try {
       const response = await apiConnector("POST", LOGIN_API, {
@@ -108,6 +109,7 @@ export function login(email, password, navigation) {
       dispatch(setUser({ ...response.data.user, image: userImage }))
       AsyncStorage.setItem('user', JSON.stringify(response.data.user));
       AsyncStorage.setItem('token', response.data.token);
+      AsyncStorage.setItem('accountType', response.data.user.accountType);
       navigation.replace('MainApp', { screen: 'HomeScreen' });
       // toast.success("Login Successful")
     } catch (error) {

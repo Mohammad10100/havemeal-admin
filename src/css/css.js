@@ -31,6 +31,11 @@ module.exports = StyleSheet.create({
       fontWeight:'bold',
       fontSize:14
     },
+    heading1:{
+      fontFamily:'Poppins',
+      fontWeight:'bold',
+      fontSize:30
+    },
     secondaryText:{
       fontFamily:'Poppins',
       fontSize:12
