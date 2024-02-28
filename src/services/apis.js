@@ -11,3 +11,9 @@ export const endpoints = {
   // RESETPASSTOKEN_API: BASE_URL + "/auth/reset-password-token",
   // RESETPASSWORD_API: BASE_URL + "/auth/reset-password",
 }
+
+// CATAGORIES API
+export const categories = {
+  CREATE_NEW_CATEGORY: BASE_URL + "/plan/createCategory",
+  SHOW_CATEGORIES: BASE_URL + "/plan/showAllCategories",
+}

@@ -20,7 +20,9 @@ import ResetPasswordScreen from './screens/Authentication/ResetPasswordScreen';
 import LoadingFullScreen from './Components/common/LoadingFullScreen';
 import OTPVerificationScreen from './screens/Authentication/OTPVerificationScreen';
 import DashboardScreen from './screens/DashboardScreen';
-import CategoryScreen from './screens/CategoryScreen';
+import CategoryScreen from './screens/Category/CategoryScreen';
+import CategoryDetailsScreen from './screens/Category/CategoryDetailsScreen';
+import AddNewCategory from './screens/Category/AddNewCategory';
 
 export default function MainApp({ navigation }) {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -55,7 +57,8 @@ export default function MainApp({ navigation }) {
           <>
             <Stack.Screen name="Dashboard" component={DashboardScreen} />
             <Stack.Screen name="Category" component={CategoryScreen} />
-            {/* <Stack.Screen name="Category:id:" component={CategoryDetails} /> */}
+            <Stack.Screen name="CategoryDetails" component={CategoryDetailsScreen} />
+            <Stack.Screen name="AddNewCategory" component={AddNewCategory} />
             <Stack.Screen name="HomeScreen" component={HomeScreen} />
           </>
         ) : (
