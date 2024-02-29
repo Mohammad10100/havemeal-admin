@@ -1,4 +1,4 @@
-import { Dimensions, Image, Pressable, SafeAreaView, ScrollView, StyleSheet, Text, View } from 'react-native'
+import { ActivityIndicator, Dimensions, Image, Pressable, SafeAreaView, ScrollView, StyleSheet, Text, View } from 'react-native'
 import React, { useEffect, useState } from 'react'
 const global = require('../../css/css')
 
@@ -10,7 +10,7 @@ const vw = Dimensions.get('window').width / 100;
 const vh = Dimensions.get('window').height / 100;
 
 export default function CategoryScreen({ navigation }) {
-
+    const [loading, setLoading] = useState(1)
     const [catArray, setCatArray] = useState([])
 
     const fetchSubLinks = async () => {
@@ -19,6 +19,7 @@ export default function CategoryScreen({ navigation }) {
             const result = await apiConnector('GET', categories.SHOW_CATEGORIES)
             console.log(result.data.data);
             setCatArray(result.data.data)
+            setLoading(false)
         } catch (error) {
             console.log('could not fetch categories');
         }
@@ -35,9 +36,14 @@ export default function CategoryScreen({ navigation }) {
                 {/* Categories */}
                 <ScrollView style={styles.scroll}>
                     {
-                        catArray.map((category) => {
+                        loading? (
+                            <View style={styles.activity}>
+                                <ActivityIndicator size="large" color="#C73866" />
+                            </View>
+                        ):
+                        catArray.map((category, key) => {
                             return (
-                                <Pressable onPress={() => { navigation.push('CategoryDetails', { id: category._id }) }}>
+                                <Pressable key={key} onPress={() => { navigation.push('CategoryDetails', { id: category._id }) }}>
                                     <View style={[styles.cardViewOuter]}>
                                         <View style={[styles.cardImage]} >
                                             {/* <Image style={[styles.img]} source={require('../images/basketVeg.png')} /> */}
@@ -136,18 +142,20 @@ const styles = StyleSheet.create({
     arrow: {
         justifyContent: 'center',
     },
-    addIcon:{
-        backgroundColor:'#C73866',
-        backgroundColor:global.baseColor,
-        position:'absolute',
-        bottom: 25 * vh,
-        right: 10 * vw,
+    addIcon: {
+        backgroundColor: '#C73866',
+        backgroundColor: global.baseColor,
+        position: 'absolute',
+        bottom: '25%',
+        right: '15%',
         padding: 2.5 * vh,
         borderRadius: 10 * vw,
     },
-    addText:{
-        color:'white',
-        fontWeight:'bold'
-    }
-
+    addText: {
+        color: 'white',
+        fontWeight: 'bold'
+    },
+    activity: {
+        paddingTop:35*vh
+    },
 })

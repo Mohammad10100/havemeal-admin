@@ -110,7 +110,7 @@ export function login(email, password, navigation) {
       AsyncStorage.setItem('user', JSON.stringify(response.data.user));
       AsyncStorage.setItem('token', response.data.token);
       AsyncStorage.setItem('accountType', response.data.user.accountType);
-      navigation.replace('MainApp', { screen: 'HomeScreen' });
+      navigation.replace('MainApp', { screen: 'Dashboard' });
       // toast.success("Login Successful")
     } catch (error) {
       console.log("LOGIN API ERROR............", error)

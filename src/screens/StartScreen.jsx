@@ -21,7 +21,7 @@ export default function StartScreen({ navigation }) {
   const checkVisited = async () => {
     try {
       const value = await AsyncStorage.getItem('@visited');
-      value == 1?navigation.navigate('MainApp')
+      value == 1?navigation.replace('MainApp')
         : navigation.navigate('OnBoarding')
     } catch (error) {
       console.error('Error while retrieving @visited from AsyncStorage:', error);
