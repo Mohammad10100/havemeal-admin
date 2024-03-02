@@ -4,6 +4,7 @@ const global = require('../../css/css')
 
 import { apiConnector } from '../../services/apiconnector'
 import { categories } from '../../services/apis'
+import AsyncStorage from '@react-native-async-storage/async-storage'
 
 
 const vw = Dimensions.get('window').width / 100;
@@ -146,8 +147,8 @@ const styles = StyleSheet.create({
         backgroundColor: '#C73866',
         backgroundColor: global.baseColor,
         position: 'absolute',
-        bottom: '25%',
-        right: '15%',
+        bottom: '20%',
+        right: '5%',
         padding: 2.5 * vh,
         borderRadius: 10 * vw,
     },

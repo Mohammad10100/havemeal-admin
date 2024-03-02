@@ -35,8 +35,11 @@ export default function MainApp({ navigation }) {
       try {
         const userToken = await AsyncStorage.getItem('token');
         const role = await AsyncStorage.getItem('accountType');
+        if (userToken!=null) {
+          role===ACCOUNT_TYPE.ADMIN?setIsAdmin(true):setIsAdmin(false)
+        }
+        console.log('token',userToken);
         // setIsLoggedIn(!!userToken); // Convert userToken to boolean
-        role===ACCOUNT_TYPE.ADMIN?setIsAdmin(true):setIsAdmin(false)
       } catch (error) {
         console.error('Error checking authentication:', error);
         navigation.navigate('Authentication')
